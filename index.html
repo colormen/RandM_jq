@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css" >
+  <title>Rick and Morty info</title>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="container">
+        <h1>Demo App</h1>
+      </div>
+    </header>
+  
+    <section>
+      <div class="container counter">
+        <span class="loaded-chars">--</span> / <span class="total">---</span>
+      </div>
+      <div class="container" id="list">
+      <div class="load">
+
+      </div>
+    </div>
+      <div class="container">
+        <button class="load-more">load more</button>
+    </section>
+  
+    <footer>
+      <div class="container">
+        Nikolay Pyatayev &copy; 2020
+      </div>
+    </footer>
+  
+    <div class="modal" id="modal">
+      <div class="modal-title">
+        <div class="windows-title"></div>
+        <div class="hide-modal">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 512.001 512.001" >
+            <path fill="#fff" d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
+              L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
+              c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
+              l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
+              L284.286,256.002z"/>
+          </svg>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div>
+          <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="" class="avatar">
+        </div>
+        <div class="description">
+          <p><b>Status</b>:<span class="status"></span></p>
+          <p><b>Species</b>:<span class="species"></span></p>
+          <p><b>Gender</b>:<span class="gender"></span></p>
+          <p><b>Origin</b>:<span class="origin"></span></p>
+          <p><b>Last location</b>:<span class="last-location"></span></p>
+        </div>
+     </div>
+
+    </div>
+  </div>
+  <script src="./jquery-3.4.1.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
