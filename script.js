@@ -5,28 +5,43 @@ $(function() {
   let apiLink = "https://rickandmortyapi.com/api/character/";
   let list = [];
   let info = null;
-  // let description = $("#description");
-  // let avatar = $("#avatar");
-  // let personName = $("#personName");
-  loadData(apiLink);
+  loadData(apiLink, "#chars");
+
+  $(".tab-container").hide();
+  $(".tab-container")
+    .first()
+    .show();
 
   $(document).on("click", ".list-item", function(e) {
     renderModal($(e.currentTarget).data("id"));
   });
+
+  $(".tabs a").on("click", function(e) {
+    let tab = $(this);
+
+    $(".tabs a").removeClass("current");
+    tab.addClass("current");
+
+    $(".tab-container").hide(500);
+    $(tab.attr("href")).show(500);
+    e.preventDefault();
+  });
+
   $(".hide-modal").on("click", function() {
     modal.hide();
   });
+
   $(".load-more").on("click", function() {
-    loadData(info.next);
+    loadData(info.next, "#chars");
   });
 
-  function loadData(apiLink) {
+  function loadData(apiLink, selector) {
     $.get(apiLink, function(data) {
       list = [...list, ...data.results];
       info = data.info;
 
       fillStack();
-      rederList();
+      renderList(selector);
     });
   }
   function fillStack() {
@@ -34,8 +49,8 @@ $(function() {
     $(".total").text(info.count);
   }
 
-  function rederList() {
-    $("#list").html("");
+  function renderList(selector) {
+    $(selector + " .list-data").html("");
     $.each(list, function(index, item) {
       let row = `
       <div class="list-item" data-id = '${index}'>
@@ -49,18 +64,17 @@ $(function() {
           </svg>
         </div>
       </div>`;
-      $("#list").append(row);
+      $(selector + " .list-data").append(row);
     });
   }
   function renderModal(id) {
-  
-    $('.windows-title').text(`${list[id].name}`)
-    $('.avatar').attr('src',list[id].image)
-    $('.status').text(`${list[id].status}`)
-    $('.species').text(`${list[id].species}`)
-    $('.gender').text(`${list[id].gender}`)
-    $('.origin').text(`${list[id].origin.name}`)
-    $('.last-location').text(`${list[id].location.name}`)
-        modal.show();
+    $(".windows-title").text(`${list[id].name}`);
+    $(".avatar").attr("src", list[id].image);
+    $(".status").text(`${list[id].status}`);
+    $(".species").text(`${list[id].species}`);
+    $(".gender").text(`${list[id].gender}`);
+    $(".origin").text(`${list[id].origin.name}`);
+    $(".last-location").text(`${list[id].location.name}`);
+    modal.show();
   }
 });

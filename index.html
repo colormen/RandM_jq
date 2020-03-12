@@ -15,14 +15,34 @@
     </header>
   
     <section>
+      <div class="container tabs">
+        <a href="#chars" class="current">Characters</a>
+        <a href="#locations">Locations</a>
+        <a href="#episodes" >Episodes</a>
+        <a href="#search">Search</a>
+      </div>
       <div class="container counter">
-        <span class="loaded-chars">--</span> / <span class="total">---</span>
+        <span class="loaded-chars">--</span>
+        <span class="total">---</span>
       </div>
-      <div class="container" id="list">
-      <div class="load">
 
+      <div class="container tab-container" id="chars">
+        <h2>Characters</h2>
+        <div class="list-data"></div>
       </div>
+    <div class="container tab-container" id="locations">
+      <h2>Locations</h2>
+      <div class="list-data"></div>
     </div>
+    <div class="container tab-container" id="episodes">
+      <h2>Episodes</h2>
+      <div class="list-data"></div>
+    </div>
+    <div class="container tab-container" id="search">
+      <h2>Search</h2>
+      <div class="list-data"></div>
+    </div>
+
       <div class="container">
         <button class="load-more">load more</button>
     </section>
@@ -35,7 +55,9 @@
   
     <div class="modal" id="modal">
       <div class="modal-title">
-        <div class="windows-title"></div>
+        <div class="windows-title"> 
+          <!-- Person name -->
+        </div>
         <div class="hide-modal">
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 512.001 512.001" >
